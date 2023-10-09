@@ -83,7 +83,6 @@ const routeCorrector = (app: Application, options: MiddlewareOptions = {}) => {
 	const validRoutes = collectRoutes(app._router.stack);
 
 	return (req: Request, res: Response, next: NextFunction) => {
-		console.log({ path: req.path });
 		if (options.whitelist && !options.whitelist.includes(req.path)) {
 			next();
 			return;
@@ -101,7 +100,6 @@ const routeCorrector = (app: Application, options: MiddlewareOptions = {}) => {
 
 		if (closestRoute) {
 			const queryString = Object.keys(req.query).length ? `?${new URLSearchParams(req.query as any)}` : '';
-			console.log({ queryString, q: req.query });
 
 			if (options.suggestOnly) {
 				res.locals.suggestedRoute = closestRoute + queryString;

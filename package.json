@@ -1,6 +1,6 @@
 {
   "name": "route-corrector",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Express middleware to correct typos in URLs via string similarity algorithms",
   "author": "Lioness100",
   "main": "dist/index.js",
