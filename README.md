@@ -14,7 +14,7 @@ In the following example, the user will be redirected to `/about` if they visit
 ```ts
 import routeCorrector from 'route-corrector';
 
-app.use(routeCorrector());
+app.use(routeCorrector(app));
 
 app.get('/about', (req, res) => res.send('About Page'));
 app.get('/products/:productId/info', (req, res) => res.send(`Product ${req.params.productId}`));
@@ -31,7 +31,7 @@ and want to manually specify typo redirects, use custom redirects:
 ```ts
 import routeCorrector from 'route-corrector';
 
-app.use(routeCorrector({
+app.use(routeCorrector(app, {
     customRedirects: {
         '/me': '/dashboard'
     }
@@ -47,7 +47,7 @@ paths):
 ```ts
 import routeCorrector from 'route-corrector';
 
-app.use(routeCorrector({
+app.use(routeCorrector(app, {
     whitelist: ['/about', '/contact'],
     blacklist: ['/admin']
 }));
@@ -61,7 +61,7 @@ route in res.locals.suggestedRoute.
 ```ts
 import routeCorrector from 'route-corrector';
 
-app.use(typoRedirectMiddleware({
+app.use(typoRedirectMiddleware(app, {
     suggestOnly: true
 }));
 
@@ -76,8 +76,11 @@ app.use((req, res, next) => {
 
 ## API
 
-### typoRedirectMiddleware(options?)
+### typoRedirectMiddleware(app, options?)
 Creates and returns the middleware.
+
+#### app
+Type: `Express.Application`
 
 #### options
 Type: `object`
