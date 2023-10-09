@@ -56,7 +56,7 @@ app.use(routeCorrector(app, {
 ### Suggest Mode
 
 In suggest mode, the middleware doesn't redirect. Instead, it sets the suggested
-route in res.locals.suggestedRoute.
+route in `res.locals.suggestedRoute`.
 
 ```ts
 import routeCorrector from 'route-corrector';
