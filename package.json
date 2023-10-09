@@ -1,0 +1,63 @@
+{
+  "name": "route-corrector",
+  "version": "1.0.0",
+  "description": "Express middleware to correct typos in URLs via string similarity algorithms",
+  "author": "Lioness100",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/Lioness100/route-corrector",
+  "license": "Apache-2.0",
+  "keywords": [
+    "express",
+    "middleware",
+    "route",
+    "corrector",
+    "typo",
+    "similarity",
+    "string",
+    "algorithm",
+    "fuzzy"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.js",
+    "types": "./dist/index.d.ts"
+  },
+  "files": [
+    "dist/**/*.js*",
+    "dist/**/*.mjs*",
+    "dist/**/*.d*"
+  ],
+  "scripts": {
+    "start": "node --enable-source-maps --experimental-specifier-resolution=node .",
+    "lint": "eslint .",
+    "format": "prettier --write src",
+    "build": "tsup && tsc -b src && gen-esm-wrapper dist/index.js dist/index.mjs"
+  },
+  "dependencies": {
+    "fastest-levenshtein": "^1.0.16"
+  },
+  "devDependencies": {
+    "@lioness100/configs": "1.0.28",
+    "@types/express": "^4.17.18",
+    "@types/node": "^20.7.2",
+    "eslint": "^8.50.0",
+    "gen-esm-wrapper": "^1.1.3",
+    "prettier": "^3.0.3",
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2"
+  },
+  "engines": {
+    "node": ">=v18.0.0"
+  },
+  "prettier": "@lioness100/configs/prettier",
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/@lioness100/configs/.eslintrc.json"
+    ]
+  },
+  "packageManager": "yarn@3.2.4"
+}

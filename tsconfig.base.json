@@ -1,0 +1,9 @@
+{
+  "extends": "@lioness100/configs/tsconfig",
+  "compilerOptions": {
+    "emitDeclarationOnly": true,
+    "noEmit": false,
+    "declaration": true,
+    "moduleResolution": "Node"
+  }
+}
